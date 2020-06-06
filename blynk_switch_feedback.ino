@@ -1,4 +1,3 @@
-
 //Blynk Home Automation with Physical Button and ON OFF State Feedback
 
 
@@ -33,20 +32,25 @@ int pushButton4State = HIGH;
 #define SERVER "blynk-cloud.com "             // Comment-out if use Blynk hosted cloud service
 #define PORT 8442
 
-#define RELAY_PIN_1      12   //D6
-#define RELAY_PIN_2      16   //D0
+#define RELAY_PIN_1      16   //D0
+#define RELAY_PIN_2       5   //D1 
 #define RELAY_PIN_3       4   //D2
-#define RELAY_PIN_4       5   //D1 
+#define RELAY_PIN_4       0   //D3
 
-#define PUSH_BUTTON_1     2   //D4
-#define PUSH_BUTTON_2    14   //D5
+
+
+#define PUSH_BUTTON_1    14   //D5
+#define PUSH_BUTTON_2    12   //D6
 #define PUSH_BUTTON_3    13   //D7
 #define PUSH_BUTTON_4     1   //TX
 
-#define VPIN_BUTTON_1    V12 
-#define VPIN_BUTTON_2    V13
+
+
+#define VPIN_BUTTON_2    V12 
+#define VPIN_BUTTON_1    V13
 #define VPIN_BUTTON_3    V14
 #define VPIN_BUTTON_4    V15  
+
 
 #define OTA_HOSTNAME "Home_Automation"
 
@@ -61,10 +65,10 @@ BLYNK_CONNECTED() {
   Blynk.syncVirtual(VPIN_BUTTON_4);
 
   // Alternatively, you could override server state using:
- // Blynk.virtualWrite(VPIN_BUTTON_1, relay1State);
- // Blynk.virtualWrite(VPIN_BUTTON_2, relay2State);
- // Blynk.virtualWrite(VPIN_BUTTON_3, relay3State);
- // Blynk.virtualWrite(VPIN_BUTTON_4, relay4State);
+ Blynk.virtualWrite(VPIN_BUTTON_1, relay1State);
+ Blynk.virtualWrite(VPIN_BUTTON_2, relay2State);
+ Blynk.virtualWrite(VPIN_BUTTON_3, relay3State);
+ Blynk.virtualWrite(VPIN_BUTTON_4, relay4State);
 
 }
 
